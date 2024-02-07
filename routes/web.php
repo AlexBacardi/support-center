@@ -59,3 +59,11 @@ Route::get('/email/verify/{id}/{hash}', VerifyEmailController::class)->middlewar
 
 Route::post('/email/verification-notification', EmailVerificationNotificationController::class)->middleware(['auth'])->name('verification.send');
 
+
+Route::get('/technical-support/create', fn () => view('main.technical _support'))->middleware(['auth', 'verified'])->name('techical-support.create');
+Route::get('/other-question/create', fn () => view('main.other_questions'))->middleware(['auth', 'verified'])->name('other-question.create');
+Route::get('/cabinet', fn () => view('cabinet.profile'))->middleware(['auth', 'verified'])->name('cabinet.profile');
+Route::get('/cabinet/edit', fn () => view('cabinet.profile_edit'))->middleware(['auth', 'verified'])->name('cabinet.edit');
+Route::get('/cabinet/all-queries', fn () => view('cabinet.all_queries'))->middleware(['auth', 'verified'])->name('cabinet.all-queries');
+Route::get('/cabinet/show-queries', fn () => view('cabinet.show_query'))->middleware(['auth', 'verified'])->name('cabinet.show-query');
+

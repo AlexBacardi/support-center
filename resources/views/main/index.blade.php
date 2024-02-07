@@ -12,7 +12,7 @@
                         <div class="col-10">
                             <div class="row">
                                 <div class="col-12 info-title">
-                                    <a href="#">Центр поддержки</a>
+                                    <a href="{{ route('index') }}">Центр поддержки</a>
                                 </div>
                                 <div class="col-12 info-subtitle">
                                     <p>ТелематикаНэт.рф</p>
@@ -32,7 +32,7 @@
                         <div class="col-10">
                             <div class="row">
                                 <div class="col-12 info-request-title">
-                                    <a href="#">Техническая поддержка</a>
+                                    <a href="{{ route('techical-support.create')}}">Техническая поддержка</a>
                                 </div>
                                 <div class="col-12 info-request-desc">
                                     Нужна помощь в установке, настройке или устранении неполадок? Выберите этот пункт, чтобы создать запрос.
@@ -47,7 +47,7 @@
                         <div class="col-10">
                             <div class="row">
                                 <div class="col-12 info-request-title">
-                                    <a href="#">Другие вопросы</a>
+                                    <a href="{{ route('other-question.create') }}">Другие вопросы</a>
                                 </div>
                                 <div class="col-12 info-request-desc">
                                     Не можете найти что то? Выберите этот вариант, и мы вам поможем.
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="info-footer">
-                        <p>&copy "ТелематикаНет", {{now()->Format('Y')}}</p>
+                        <p>&copy "ТелематикаНэт", {{now()->Format('Y')}}</p>
                     </div>
                 </div>
             </div>
