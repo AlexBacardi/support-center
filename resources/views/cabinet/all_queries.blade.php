@@ -51,17 +51,17 @@
                                             <td scope="col" class="text-muted">Ссылка</td>
                                             <td scope="col" class="text-muted">Сводка</td>
                                             <td scope="col" class="d-none d-lg-table-cell text-muted">Service Desk</td>
-                                            <td scope="col" class="text-muted">Статус</td>
+                                            <td scope="col" class="text-muted text-center">Статус</td>
                                             <td scope="col" class="d-none d-lg-table-cell text-center text-muted">Инициатор запроса</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td scope="row"><i class="fa-solid fa-wrench"></i></td>
-                                            <td><a href="{{ route('cabinet.show-queries') }}">TT-8424</a></td>
-                                            <td><a href="{{ route('cabinet.show-queries') }}">какое то название небольшое</a></td>
+                                            <td><a href="{{ route('cabinet.show-query') }}">TT-8424</a></td>
+                                            <td><a href="{{ route('cabinet.show-query') }}">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Решено</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                         <tr>
@@ -69,7 +69,7 @@
                                             <td><a href="">TT-8424</a></td>
                                             <td><a href="">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Закрыто</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                         <tr>
@@ -77,7 +77,7 @@
                                             <td><a href="">TT-8424</a></td>
                                             <td><a href="">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Решено</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                         <tr>
@@ -85,7 +85,7 @@
                                             <td><a href="">TT-8424</a></td>
                                             <td><a href="">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Решено</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                         <tr>
@@ -93,7 +93,7 @@
                                             <td><a href="">TT-8424</a></td>
                                             <td><a href="">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Решено</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                         <tr>
@@ -101,7 +101,7 @@
                                             <td><a href="">TT-8424</a></td>
                                             <td><a href="">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Решено</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                         <tr>
@@ -109,7 +109,7 @@
                                             <td><a href="">TT-8424</a></td>
                                             <td><a href="">какое то название небольшое</a></td>
                                             <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                            <td>Решено</td>
+                                            <td class="text-center">Решено</td>
                                             <td class="d-none d-lg-table-cell text-center">Компания</td>
                                         </tr>
                                     </tbody>
