@@ -1,0 +1,412 @@
+/* -------------------- General -------------------------*/
+.card, .info, .request, .request-show, .form-request, .form-other, .profile, .profile-edit {
+    height: auto;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+}
+
+.card-footer p {
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+.card-body {
+    margin-bottom: 50px;
+}
+
+.info, .request, .request-show, .form-request,.form-other, .profile, .profile-edit {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px 50px 0 50px;
+    margin-top: -200px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------- endGeneral -------------------------*/
+
+/* -------------------- Header -------------------------*/
+.header {
+    height: 45vh;
+    background-color: #0d6efd;
+}
+
+.header-top-logo {
+    padding: 10px 10px 10px 0;
+}
+
+.header-top .header-top-logo img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.header-top .header-top-logo a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.header .header-menu button {
+    border-radius: 15px;
+}
+.header-menu .dropdown-menu {
+    min-width: 12rem;
+}
+
+.header-menu .dropdown-menu .badge {
+    margin-left: 1.5rem;
+}
+
+
+/* -------------------- endHeader -------------------------*/
+
+.btn-group {
+    padding: 5px 0;  /* разобраться что за правило !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+}
+
+/* -------------------- FormLogin -------------------------*/
+
+
+.form-login {
+    margin-top: -200px;
+}
+
+/* -------------------- endFormLogin -------------------------*/
+
+/* -------------------- FormRegister -------------------------*/
+
+.form-register {
+    margin-top: -200px;
+}
+
+/* -------------------- endFormRegister -------------------------*/
+
+/* -------------------- Info -------------------------*/
+
+.info .info-logo {
+    padding: 0;
+    text-align: center;
+}
+
+.info .info-logo img {
+    max-width: 100%;
+}
+
+.info .info-title a {
+    text-decoration: none;
+}
+
+.info .info-subtitle p {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.info-descr {
+    font-size: 0.9rem;
+}
+.info-request {
+    margin-bottom: 1.5rem;
+}
+
+.info-request i {
+    font-size: 40px;
+    color: #006400;
+}
+
+.info-request .info-request-title a{
+    text-decoration: none;
+}
+
+.info-request .info-request-desc {
+    font-size: 0.8rem;
+}
+.info-footer {
+    margin-top: 100px;
+    margin-bottom: 1rem;
+}
+
+.info-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- endInfo -------------------------*/
+
+/* -------------------- Request -------------------------*/
+
+.request .request-title a {
+    text-decoration: none;
+}
+
+.request .request-subtitle p{
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.request table tbody td {
+    padding: 1.2rem 0;
+}
+
+.request table tbody td i {
+    font-size: 30px;
+    color: #006400;
+}
+
+.request .reuqest-footer {
+    margin-top: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.request .reuqest-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- endRequest -------------------------*/
+
+/* -------------------- RequestShow -------------------------*/
+
+.request-show .reqest-show-icon{
+    padding-right: 0;
+}
+
+.request-show i {
+    font-size: 3rem;
+    color: #006400;
+}
+
+.request-show .tiket-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0;
+}
+.request-show-message {
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.request-show-message .form-floating label {
+    font-size: 0.8rem;
+}
+
+.request-show-form {
+    margin-bottom: 50px;
+}
+
+.request-show-form label {
+    font-size: 0.8rem;
+}
+
+.request-show-action {
+    margin-bottom: 50px;
+}
+
+.request-show-action span {
+    margin-bottom: 10px;
+}
+
+.request-show-action i {
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+.request-show-action i+a{
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+.reuqest-show-footer {
+    margin-top: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.reuqest-show-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+.tiket-img {
+    width: 250px;
+    height: auto;
+}
+
+.tiket-img img {
+    width: 100%;
+}
+
+/* -------------------- endRequestShow -------------------------*/
+
+/* -------------------- FormRequest -------------------------*/
+
+.form-request .form-request-icon {
+    font-size: 2.5rem;
+    color: #006400;
+}
+
+.form-request-title {
+    margin-bottom: 0;
+}
+
+.form-request-footer {
+    margin-top: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.form-request-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- endFormRequest -------------------------*/
+
+/* -------------------- FormOther -------------------------*/
+
+.form-other .form-other-icon {
+    font-size: 2.5rem;
+    color: #006400;
+}
+
+.form-other-title {
+    margin-bottom: 0;
+}
+
+.form-other-footer {
+    margin-top: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.form-other-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- endFormOther -------------------------*/
+
+/* -------------------- Profile -------------------------*/
+
+.profile-footer {
+    margin-top: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.profile-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- endProfile -------------------------*/
+
+
+/* -------------------- ProfileEdit -------------------------*/
+
+.profile-edit-footer {
+    margin-top: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.profile-edit-footer p {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- endProfileEdit -------------------------*/
+
+
+/* -------------------- FormRest -------------------------*/
+
+.form-reset {
+    margin-top: -180px;
+}
+
+/* -------------------- andFormRest -------------------------*/
+
+/* -------------------- FormFogotPassword -------------------------*/
+
+.form-fogot-password {
+    margin-top: -135px;
+}
+
+/* -------------------- endFormFogotPassword -------------------------*/
+
+@media(max-width: 320px) {
+    .header {
+        height: 40vh;
+    }
+
+    .form-login, .form-register, .request, .request-show {
+        margin-top: -125px;
+        margin-bottom: 10px;
+    }
+
+    .info {
+        margin-top: -125px;
+        padding: 20px 30px 0 30px;
+    }
+
+    .request {
+        padding: 15px;
+    }
+
+    .request-show {
+        margin-top: -125px;
+        padding: 20px 15px 0 15px;
+    }
+
+    .request-show .reqest-show-icon i {
+        font-size: 2.5rem;
+    }
+
+    .request-show .tiket-title {
+        font-size: 1rem;
+    }
+    .form-request, .form-other, .profile, .profile-edit {
+        margin-top: -125px;
+        padding: 20px 15px 0 15px;
+    }
+
+    .form-request-title, .form-other-title {
+        font-size: 1rem;
+    }
+
+}
+
+@media(min-width:360px) and (max-width: 767px) {
+    .header {
+        height: 35vh;
+    }
+
+    .form-login {
+        margin-top: -155px;
+        margin-bottom: 20px;
+    }
+
+    .form-register {
+        margin-top: -160px;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        margin-top: -160px;
+        padding: 20px 30px;
+    }
+
+    .request {
+        margin-top: -160px;
+        padding: 15px;
+    }
+
+    .request-show, .form-request, .form-other, .profile, .profile-edit {
+        margin-top: -160px;
+        padding: 20px 20px 0 20px;
+    }
+
+}
