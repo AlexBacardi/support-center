@@ -7,6 +7,7 @@
                 <div class="request-show">
                     <div class="row align-items-center mb-3">
                         <div class="col-2 col-md-1 text-center reqest-show-icon">
+                            {{--TODO поправить отображение иконки на разных экранах  --}}
                             <i class="fa-solid fa-wrench"></i>
                         </div>
                         <div class="col-10 col-md-11">
@@ -20,7 +21,7 @@
                                     </nav>
                                 </div>
                                 <div class="col-12">
-                                    <p class="tiket-title">tn800012, телефония</p>
+                                    <p class="tiket-title">{{ $request->title }}</p>
                                 </div>
                             </div>
                         </div>
@@ -56,77 +57,82 @@
                                 </div>
                                 <hr>
                             </div>
-                            <div class="request-answer">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-2 col-md-1">
-                                        <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="m-0 fw-medium small">Компания <span class="small text-muted">27/окт/23 11:57 AM</span></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-11 offset-1">
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, iste. Aliquam tempore
-                                            dolor ducimus assumenda, ipsam architecto ad!
-                                            Accusantium esse ipsum magnam, sequi tempora repellat!
-                                        </p>
-                                        <div class="tiket-img mb-1">
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#imgModal"><img src="{{ asset('img/23.jpg') }}" alt=""></button>
+                            {{--TODO сделать коментарии --}}
+                            @if (false)
+                                <div class="active">
+                                    <div class="request-answer">
+                                        <div class="row align-items-center mb-2">
+                                            <div class="col-2 col-md-1">
+                                                <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
+                                            </div>
+                                            <div class="col-9">
+                                                <p class="m-0 fw-medium small">Компания <span class="small text-muted">27/окт/23 11:57 AM</span></p>
+                                            </div>
                                         </div>
-                                        <div class="tiket-img mb-1">
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#imgModal1"><img src="{{ asset('img/image-2023-08-30-10-58-52-962.png') }}" alt=""></button>
-                                        </div>
+                                        <div class="row">
+                                            <div class="col-11 offset-1">
+                                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, iste. Aliquam tempore
+                                                    dolor ducimus assumenda, ipsam architecto ad!
+                                                    Accusantium esse ipsum magnam, sequi tempora repellat!
+                                                </p>
+                                                <div class="tiket-img mb-1">
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#imgModal"><img src="{{ asset('img/23.jpg') }}" alt=""></button>
+                                                </div>
+                                                <div class="tiket-img mb-1">
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#imgModal1"><img src="{{ asset('img/image-2023-08-30-10-58-52-962.png') }}" alt=""></button>
+                                                </div>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
-                                            <div class="modal-dialog  modal-xl">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
+                                                    <div class="modal-dialog  modal-xl">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center" style="width: auto">
+                                                                <img src="{{ asset('img/23.jpg') }}" alt="" class="img-fluid">
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-body text-center" style="width: auto">
-                                                        <img src="{{ asset('img/23.jpg') }}" alt="" class="img-fluid">
+                                                </div>
+                                                <div class="modal fade" id="imgModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
+                                                    <div class="modal-dialog  modal-xl">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center" style="width: auto">
+                                                                <img src="{{ asset('img/image-2023-08-30-10-58-52-962.png') }}" alt="" class="img-fluid">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="modal fade" id="imgModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
-                                            <div class="modal-dialog  modal-xl">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body text-center" style="width: auto">
-                                                        <img src="{{ asset('img/image-2023-08-30-10-58-52-962.png') }}" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <hr class="mt-3">
                                         </div>
                                     </div>
-                                    <hr class="mt-3">
                                 </div>
-                            </div>
+                            @endif
                             <div class="request-answer">
                                 <div class="row align-items-center mb-2">
                                     <div class="col-2 col-md-1">
                                         <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
                                     </div>
                                     <div class="col-9">
+                                        {{--TODO исправить дату --}}
                                         <p class="m-0 fw-medium small">Подробности <span class="small text-muted">27/окт/23 11:57 AM</span></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-11 offset-1">
                                         <p class="m-0 text-muted small">Описание</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque, iste. Aliquam tempore
-                                            dolor ducimus assumenda, ipsam architecto ad!
-                                            Accusantium esse ipsum magnam, sequi tempora repellat!
+                                        <p>
+                                            {{ $request->descr }}
                                         </p>
                                         <p class="text-muted small mb-0">Приоритет</p>
-                                        <p class="small">Medium</p>
+                                        <p class="small">{{ $request->priority->title}}</p>
                                     </div>
                                     <hr class="mt-3">
                                 </div>

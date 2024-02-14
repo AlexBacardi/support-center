@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Priority extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+    ];
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class, 'priority_id', 'id');
+    }
 }

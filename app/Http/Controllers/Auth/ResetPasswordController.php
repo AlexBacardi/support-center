@@ -25,8 +25,6 @@ class ResetPasswordController extends Controller
     {
         $request->validated();
 
-        dd('11111');
-
         $status = Password::reset($request->only('email', 'password', 'password_confirmation', 'token'), function($user) use ($request) {
 
             $user->forceFill([

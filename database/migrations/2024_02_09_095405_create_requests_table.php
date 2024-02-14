@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('descr');
             $table->string('site_id');
+            $table->foreignId('user_id')->index()->constrained('users');
             $table->foreignId('satellite_id')->index()->constrained('satellites');
             $table->foreignId('priority_id')->index()->constrained('priorities');
             $table->foreignId('status_id')->index()->constrained('statuses');

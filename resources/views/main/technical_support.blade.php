@@ -27,36 +27,41 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <form action="#">
+                            <form action="{{ route('techical-support.create' )}}" method="POST">
+                                @csrf
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label text-muted">Тема</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1">
+                                    <label for="title" class="form-label text-muted small">Тема</label>
+                                    <input type="text" class="form-control" id="title" name="title">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label text-muted">Описание</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <label for="descr" class="form-label text-muted small">Описание</label>
+                                    <textarea class="form-control" id="descr" name="descr" rows="3"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label text-muted">Выберите спутник (не обязательно)</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">Express 80</option>
+                                    <label for="siteId" class="form-label text-muted small">Site ID станции</label>
+                                    <input type="text" class="form-control" id="siteId" name="site_id">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small">Выберите спутник</label>
+                                    <select class="form-select" name="satellite_id" aria-label="Default select example">
+                                        <option selected>Выбрать</option>
+                                        @foreach ($satellites as $satellite)
+                                            <option value="{{ $satellite->id}}">{{ $satellite->title }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label text-muted">Приоритет (не обязательно)</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">Highest</option>
-                                        <option value="1">High</option>
-                                        <option value="1">Medium</option>
-                                        <option value="1">Low</option>
-                                        <option value="1">Lowest</option>
+                                    <label class="form-label text-muted small">Приоритет</label>
+                                    <select class="form-select" name="priority_id" aria-label="Default select example">
+                                        <option selected>Выбрать</option>
+                                        @foreach ($priorities as $priority)
+                                            <option value="{{ $priority->id }}">{{ $priority->title }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="formFileMultiple" class="form-label">Вложение (не обязательно)</label>
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                    <label for="formFileMultiple" class="form-label text-muted small">Вложение (не обязательно)</label>
+                                    <input class="form-control" type="file" name="files[]" id="formFileMultiple" multiple>
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary btn-sm">Создать</button>

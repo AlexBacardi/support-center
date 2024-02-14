@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Status extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+    ];
+
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class, 'status_id', 'id');
+    }
 }
