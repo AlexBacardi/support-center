@@ -147,7 +147,7 @@
 }
 
 .request table tbody td {
-    padding: 1.2rem 0;
+    padding: .7rem 0;
 }
 
 .request table tbody td i {
@@ -171,13 +171,10 @@
 /* -------------------- RequestShow -------------------------*/
 
 .request-show .reqest-show-icon{
-    padding-right: 0;
-}
-
-.request-show i {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #006400;
 }
+
 
 .request-show .tiket-title {
     font-weight: 700;
@@ -409,4 +406,23 @@
         padding: 20px 20px 0 20px;
     }
 
+}
+
+@media (min-width:768px) and (max-width: 1200px) {
+    .request-show .reqest-show-icon {
+        width: 10%;
+    }
+}
+
+@media (min-width:1279px) and (max-width: 1399px) {
+    .request-show .reqest-show-icon {
+        padding: 0;
+        width: 6%;
+    }
+}
+
+@media (min-width:1400px) {
+    .request-show .reqest-show-icon {
+        width: 6%;
+    }
 }

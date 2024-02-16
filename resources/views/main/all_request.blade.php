@@ -43,12 +43,12 @@
                     </div>
                     <div class="row align-items-center">
                         <div class="col-12">
-                            <div class="table-responsive-sm">
-                                <table class="table table-responsive-sm">
+                            <div class="table-responsive">
+                                <table class="table">
                                     <thead>
                                         <tr class="small">
                                             <td scope="col" class="text-muted">Тип</td>
-                                            <td scope="col" class="text-muted">Ссылка</td>
+                                            <td scope="col" class="d-none d-md-table-cell text-muted">Ссылка</td>
                                             <td scope="col" class="text-muted">Сводка</td>
                                             <td scope="col" class="d-none d-lg-table-cell text-muted">Service Desk</td>
                                             <td scope="col" class="text-muted text-center">Статус</td>
@@ -58,11 +58,17 @@
                                     <tbody>
                                         @foreach ($allUserRequest as $request)
                                             <tr>
-                                                <td scope="row"><i class="fa-solid fa-wrench"></i></td>
-                                                <td><a href="{{ route('techical-support.show', $request->id) }}" class="ms-3">TT-{{ $request->id}}</a></td>
+                                                <td scope="row">
+                                                    @if ($request->type_id == 1)
+                                                        <i class="fa-solid fa-wrench"></i>
+                                                    @else
+                                                        <i class="fa-solid fa-rotate"></i>
+                                                    @endif
+                                                </td>
+                                                <td class="d-none d-md-table-cell"><a href="{{ route('techical-support.show', $request->id) }}" class="ms-3">TT-{{ $request->id}}</a></td>
                                                 <td><a href="{{ route('techical-support.show', $request->id) }}">{{ $request->title }}</a></td>
                                                 <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
-                                                <td class="text-center">{{ $request->status->title}}</td>
+                                                <td class="text-center small">{{ $request->status->title}}</td>
                                                 <td class="d-none d-lg-table-cell text-center">Компания</td>
                                             </tr>
                                         @endforeach

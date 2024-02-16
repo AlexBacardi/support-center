@@ -27,18 +27,37 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <form action="#">
+                            <form action="{{ route('other-question.create')}}" method="POST">
+                                @csrf
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label text-muted">Тема</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1">
+                                    <label for="titleId" class="form-label text-muted">Тема</label>
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="titleId" name="title">
+                                    @error('title')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div>
+                                    <label class="mb-3descrId" class="form-label text-muted">Описание</label>
+                                    <textarea class="form-control @error('descr') is-invalid @enderror" id="descrId" rows="3" name="descr"></textarea>
+                                    @error('descr')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label text-muted">Описание</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <label class="form-label text-muted small">Приоритет</label>
+                                    <select class="form-select @error('priority_id') is-invalid @enderror" name="priority_id" aria-label="Default select example">
+                                        <option selected disabled>Выбрать</option>
+                                        @foreach ($priorities as $priority)
+                                            <option value="{{ $priority->id }}" {{$priority->id == old('priority_id') ? ' selected' : ''}}>{{ $priority->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('priority_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div>
                                     <label for="formFileMultiple" class="form-label">Вложение (не обязательно)</label>
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                    <input class="form-control" type="file" id="formFileMultiple" multiple name="files[]">
                                 </div>
                                 <div class="mt-4">
                                     <button type="submit" class="btn btn-primary btn-sm">Создать</button>

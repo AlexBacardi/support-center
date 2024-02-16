@@ -6,11 +6,14 @@
             <div class="col-12 col-lg-11">
                 <div class="request-show">
                     <div class="row align-items-center mb-3">
-                        <div class="col-2 col-md-1 text-center reqest-show-icon">
-                            {{--TODO поправить отображение иконки на разных экранах  --}}
-                            <i class="fa-solid fa-wrench"></i>
+                        <div class="col-2 col-xl-1 text-center reqest-show-icon">
+                            @if ($request->type_id == 1)
+                                <i class="fa-solid fa-wrench"></i>
+                            @else
+                                <i class="fa-solid fa-rotate"></i>
+                            @endif
                         </div>
-                        <div class="col-10 col-md-11">
+                        <div class="col-10 col-md-9">
                             <div class="row">
                                 <div class="col-12">
                                     <nav aria-label="breadcrumb">
@@ -57,7 +60,7 @@
                                 </div>
                                 <hr>
                             </div>
-                            {{--TODO сделать коментарии --}}
+                            {{-- TODO сделать коментарии --}}
                             @if (false)
                                 <div class="active">
                                     <div class="request-answer">
@@ -121,8 +124,7 @@
                                         <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
                                     </div>
                                     <div class="col-9">
-                                        {{--TODO исправить дату --}}
-                                        <p class="m-0 fw-medium small">Подробности <span class="small text-muted">27/окт/23 11:57 AM</span></p>
+                                        <p class="m-0 fw-medium small">Подробности <span class="small text-muted">{{ $request->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -132,7 +134,7 @@
                                             {{ $request->descr }}
                                         </p>
                                         <p class="text-muted small mb-0">Приоритет</p>
-                                        <p class="small">{{ $request->priority->title}}</p>
+                                        <p class="small">{{ $request->priority->title }}</p>
                                     </div>
                                     <hr class="mt-3">
                                 </div>

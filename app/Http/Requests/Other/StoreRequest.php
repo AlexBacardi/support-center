@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Request;
+namespace App\Http\Requests\Other;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,9 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'min:5'],
-            'descr' => ['required', 'string', 'min:15'],
-            'site_id' => ['required', 'min:6'],
-            'satellite_id' => ['required'],
+            'descr' => ['required', 'string', 'min:8'],
             'priority_id' => ['required'],
             'files' => ['nullable'],
         ];
@@ -36,7 +34,6 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'Тема',
             'descr' => 'Описание',
-            'satellite_id' => 'Выберите спутник',
             'priority_id' => 'Приоритет',
         ];
     }

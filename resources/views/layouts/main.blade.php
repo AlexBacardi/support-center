@@ -31,10 +31,10 @@
                             <div class="header-menu">
                                 <div class="dropdown text-end  pt-1">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Запросы <span class="badge text-bg-info d-none d-md-inline bg-white">4</span>
+                                        Запросы @if ($requestCount > 0) <span class="badge text-bg-info d-none d-md-inline bg-white">{{ $requestCount }}</span> @endif
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ route('techical-support.all-request') }}">Мои Запросы <span class="badge text-bg-secondary">4</span></a></li>
+                                        <li><a class="dropdown-item" href="{{ route('techical-support.all-request') }}">Мои Запросы @if ($requestCount > 0) <span class="badge text-bg-secondary">{{ $requestCount }}</span> @endif</a></li>
                                         <li><a class="dropdown-item" href="{{ route('cabinet.profile')}}">Профиль</a></li>
                                         <li>
                                             <form action="{{ route('logout')}}" method="POST">

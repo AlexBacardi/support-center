@@ -38,10 +38,10 @@ class ResetPasswordController extends Controller
         });
         if ($status === Password::PASSWORD_RESET) {
 
-            return redirect()->route('login')->with('status', 'Ваш пароль был успешно сброшен');
+            return redirect()->route('login')->with('status', trans($status));
 
         }
 
-        return back()->withInput($request->only('email'))->withErrors(['email' => 'Не верные данные']);
+        return back()->withInput($request->only('email'))->withErrors(['email' => trans($status)]);
     }
 }

@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         DB::table('satellites')->insert([
+
             'title' => 'express80',
+
         ]);
 
         DB::table('priorities')->insert([
@@ -51,6 +53,15 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'title' => 'Отменено',
+            ],
+        ]);
+
+        DB::table('types')->insert([
+            [
+                'title' => 'Techical support'
+            ],
+            [
+                'title' => 'Other'
             ],
         ]);
     }

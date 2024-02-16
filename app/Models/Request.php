@@ -19,6 +19,7 @@ class Request extends Model
         'satellite_id',
         'priority_id',
         'status_id',
+        'type_id',
     ];
 
     public function priority()
@@ -29,5 +30,10 @@ class Request extends Model
     public function status()
     {
         return $this->belongsTo(Status::class, 'status_id', 'id');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'type_id', 'id');
     }
 }
