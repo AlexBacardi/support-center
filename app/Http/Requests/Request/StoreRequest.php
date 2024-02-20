@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'site_id' => ['required', 'min:6'],
             'satellite_id' => ['required'],
             'priority_id' => ['required'],
-            'files' => ['nullable'],
+            'files' => ['nullable', 'mimes:png,jpg,jpeg,doc,docx,pdf'],
         ];
     }
 

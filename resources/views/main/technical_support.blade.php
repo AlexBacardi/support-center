@@ -27,7 +27,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <form action="{{ route('techical-support.create') }}" method="POST">
+                            <form action="{{ route('techical-support.create') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="title" class="form-label text-muted small">Тема</label>
@@ -76,7 +76,10 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFileMultiple" class="form-label text-muted small">Вложение (не обязательно)</label>
-                                    <input class="form-control" type="file" name="files[]" id="formFileMultiple" multiple>
+                                    <input class="form-control" type="file" name="files" id="formFileMultiple" multiple>
+                                    @error('files')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-2">
                                     <button type="submit" class="btn btn-primary btn-sm">Создать</button>

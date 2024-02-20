@@ -24,16 +24,36 @@ class Request extends Model
 
     public function priority()
     {
+
         return $this->belongsTo(Priority::class, 'priority_id', 'id');
+
     }
 
     public function status()
     {
+
         return $this->belongsTo(Status::class, 'status_id', 'id');
+
     }
 
     public function type()
     {
+
         return $this->belongsTo(Type::class, 'type_id', 'id');
+
+    }
+
+    public function user()
+    {
+
+        return $this->belongsTo(User::class, 'user_id', 'id');
+
+    }
+
+    public function comments()
+    {
+
+        return $this->hasMany(Comment::class, 'request_id', 'id');
+
     }
 }

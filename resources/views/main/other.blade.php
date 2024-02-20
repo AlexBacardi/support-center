@@ -27,7 +27,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <form action="{{ route('other-question.create')}}" method="POST">
+                            <form action="{{ route('other.create')}}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="titleId" class="form-label text-muted">Тема</label>

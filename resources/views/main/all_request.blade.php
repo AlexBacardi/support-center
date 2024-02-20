@@ -65,8 +65,8 @@
                                                         <i class="fa-solid fa-rotate"></i>
                                                     @endif
                                                 </td>
-                                                <td class="d-none d-md-table-cell"><a href="{{ route('techical-support.show', $request->id) }}" class="ms-3">TT-{{ $request->id}}</a></td>
-                                                <td><a href="{{ route('techical-support.show', $request->id) }}">{{ $request->title }}</a></td>
+                                                <td class="d-none d-md-table-cell"><a href="{{ route('servicedesk.show', $request->id) }}" class="ms-3">TT-{{ $request->id}}</a></td>
+                                                <td><a href="{{ route('servicedesk.show', $request->id) }}">{{ $request->title }}</a></td>
                                                 <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
                                                 <td class="text-center small">{{ $request->status->title}}</td>
                                                 <td class="d-none d-lg-table-cell text-center">Компания</td>

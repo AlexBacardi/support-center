@@ -47,7 +47,7 @@
                         <div class="col-10">
                             <div class="row">
                                 <div class="col-12 info-request-title">
-                                    <a href="{{ route('other-question.create') }}">Другие вопросы</a>
+                                    <a href="{{ route('other.create') }}">Другие вопросы</a>
                                 </div>
                                 <div class="col-12 info-request-desc">
                                     Не можете найти что то? Выберите этот вариант, и мы вам поможем.

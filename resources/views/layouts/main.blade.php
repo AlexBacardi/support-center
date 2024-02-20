@@ -34,7 +34,7 @@
                                         Запросы @if ($requestCount > 0) <span class="badge text-bg-info d-none d-md-inline bg-white">{{ $requestCount }}</span> @endif
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ route('techical-support.all-request') }}">Мои Запросы @if ($requestCount > 0) <span class="badge text-bg-secondary">{{ $requestCount }}</span> @endif</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('servicedesk.all-request') }}">Мои Запросы @if ($requestCount > 0) <span class="badge text-bg-secondary">{{ $requestCount }}</span> @endif</a></li>
                                         <li><a class="dropdown-item" href="{{ route('cabinet.profile')}}">Профиль</a></li>
                                         <li>
                                             <form action="{{ route('logout')}}" method="POST">

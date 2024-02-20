@@ -8,9 +8,12 @@ use App\Http\Requests\Request\StoreRequest;
 use App\Models\Priority;
 use App\Models\Request;
 use App\Models\Satellite;
+use App\Services\Request\RequestService;
 
 class RequestController extends Controller
 {
+
+    public function __construct(private RequestService $requestServece){}
 
     public function index()
     {
@@ -34,24 +37,14 @@ class RequestController extends Controller
 
     public function storeSupportRequest(StoreRequest $request)
     {
-
+        
         $data = $request->validated();
 
-        $data['user_id'] = auth()->user()->id;
+        dd($data['files']);
 
-        $data['status_id'] = 1;
+        $this->requestServece->create($request, $data);
 
-        $data['type_id'] = 1;
-
-        if(is_null($data['files'][0])){
-
-            unset($data['files']);
-
-        }
-
-        Request::firstOrCreate($data);
-
-        return redirect()->route('techical-support.all-request');
+        return redirect()->route('servicedesk.all-request');
 
     }
 
@@ -61,7 +54,7 @@ class RequestController extends Controller
 
         $priorities = Priority::all();
 
-        return view('main.other_questions', compact('priorities'));
+        return view('main.other', compact('priorities'));
 
     }
 
@@ -71,28 +64,18 @@ class RequestController extends Controller
 
         $data = $request->validated();
 
-        $data['user_id'] = auth()->user()->id;
+        $this->requestServece->create($request, $data);
 
-        $data['status_id'] = 1;
-
-        $data['type_id'] = 2;
-
-        if(is_null($data['files'][0])){
-
-            unset($data['files']);
-
-        }
-
-        Request::firstOrCreate($data);
-
-        return redirect()->route('techical-support.all-request');
+        return redirect()->route('servicedesk.all-request');
 
     }
 
     public function show(Request $request)
     {
 
-        return view('main.show_request', compact('request'));
+        $comments = $request->comments()->latest('created_at')->get();
+
+        return view('main.show_request', compact('request', 'comments'));
 
     }
 }

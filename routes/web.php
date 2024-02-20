@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Main\CommentController;
 use App\Http\Controllers\Main\RequestController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,23 +24,23 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     Route::post('/technical-support/create', [RequestController::class, 'storeSupportRequest']);
 
-    Route::get('/technical-support/all-request', [RequestController::class, 'index'])->name('techical-support.all-request');
+    Route::get('/servicedesk/all-request', [RequestController::class, 'index'])->name('servicedesk.all-request');
 
-    Route::get('/technical-support/show/{request}', [RequestController::class, 'show'])->name('techical-support.show');
+    Route::get('/servicedesk/{request}', [RequestController::class, 'show'])->name('servicedesk.show');
 
-    Route::get('/other-question/create', [RequestController::class, 'createOtherRequest'])->name('other-question.create');
+    Route::post('/servicedesk/{request}/create', [CommentController::class, 'store'])->name('servicedesk.comments.store');
 
-    Route::post('/other-question/create', [RequestController::class, 'storeOtherRequest']);
+    Route::get('/other/create', [RequestController::class, 'createOtherRequest'])->name('other.create');
+
+    Route::post('/other/create', [RequestController::class, 'storeOtherRequest']);
 
 });
 
 
 
 
-//Route::get('/technical-support/create', fn () => view('main.technical _support'))->middleware(['auth', 'verified'])->name('techical-support.create');
-//Route::get('/other-question/create', fn () => view('main.other_questions'))->middleware(['auth', 'verified'])->name('other-question.create');
+
 Route::get('/cabinet', fn () => view('cabinet.profile'))->middleware(['auth', 'verified'])->name('cabinet.profile');
 Route::get('/cabinet/edit', fn () => view('cabinet.profile_edit'))->middleware(['auth', 'verified'])->name('cabinet.edit');
-//Route::get('/cabinet/all-queries', fn () => view('cabinet.all_queries'))->middleware(['auth', 'verified'])->name('cabinet.all-queries');
-//Route::get('/cabinet/show-queries', fn () => view('cabinet.show_query'))->middleware(['auth', 'verified'])->name('cabinet.show-query');
+
 
