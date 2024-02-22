@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFileMultiple" class="form-label text-muted small">Вложение (не обязательно)</label>
-                                    <input class="form-control" type="file" name="files" id="formFileMultiple" multiple>
+                                    <input class="form-control" type="file" name="files[]" id="formFileMultiple" multiple>
                                     @error('files')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

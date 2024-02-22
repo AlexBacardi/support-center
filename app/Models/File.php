@@ -10,5 +10,12 @@ class File extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    //TODO сделать сохранение файлов 
+
+    protected $fillable = [
+        'request_id',
+        'comment_id',
+        'name',
+        'path',
+        'extension',
+    ];
 }

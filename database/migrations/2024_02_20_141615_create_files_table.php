@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('request_id')->nullable()->index()->constrained('requests');
             $table->foreignId('comment_id')->nullable()->index()->constrained('comments');
+            $table->string('name');
             $table->string('path');
+            $table->string('extension');
 
             $table->timestamps();
             $table->softDeletes();

@@ -9,6 +9,7 @@ use App\Models\Priority;
 use App\Models\Request;
 use App\Models\Satellite;
 use App\Services\Request\RequestService;
+use Illuminate\Support\Facades\Storage;
 
 class RequestController extends Controller
 {
@@ -37,10 +38,8 @@ class RequestController extends Controller
 
     public function storeSupportRequest(StoreRequest $request)
     {
-        
-        $data = $request->validated();
 
-        dd($data['files']);
+        $data = $request->validated();
 
         $this->requestServece->create($request, $data);
 
@@ -75,7 +74,9 @@ class RequestController extends Controller
 
         $comments = $request->comments()->latest('created_at')->get();
 
-        return view('main.show_request', compact('request', 'comments'));
+        $files = $request->files;
+
+        return view('main.show_request', compact('request', 'comments', 'files'));
 
     }
 }

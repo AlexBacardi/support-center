@@ -56,4 +56,9 @@ class Request extends Model
         return $this->hasMany(Comment::class, 'request_id', 'id');
 
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class, 'request_id', 'id');
+    }
 }

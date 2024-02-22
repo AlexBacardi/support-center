@@ -25,7 +25,8 @@ class StoreRequest extends FormRequest
             'title' => ['required', 'string', 'min:5'],
             'descr' => ['required', 'string', 'min:8'],
             'priority_id' => ['required'],
-            'files' => ['nullable'],
+            'files' => ['nullable', 'array'],
+            'files.*' => ['mimes:png,jpg,jpeg,doc,docx,pdf'],
         ];
     }
 

@@ -27,7 +27,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <form action="{{ route('other.create')}}" method="POST">
+                            <form action="{{ route('other.create')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="titleId" class="form-label text-muted">Тема</label>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div>
                                     <label for="formFileMultiple" class="form-label">Вложение (не обязательно)</label>
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple name="files[]">
+                                    <input class="form-control" type="file" name="files[]" id="formFileMultiple" multiple >
                                 </div>
                                 <div class="mt-4">
                                     <button type="submit" class="btn btn-primary btn-sm">Создать</button>

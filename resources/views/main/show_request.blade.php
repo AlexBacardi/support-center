@@ -134,6 +134,16 @@
                                         <p>
                                             {{ $request->descr }}
                                         </p>
+                                        @foreach ($files as $file)
+                                            @if ($file->extension == 'doc' || $file->extension == 'docx' || $file->extension == 'pdf')
+                                                <a href="{{ Storage::url($file->path) }}" download>{{ $file->name }}</a>
+                                            @else
+                                                <div class="tiket-img mb-1">
+                                                    <img src="{{ asset('build/img/logo/logo.png') }}" alt="1231">
+                                                    <img src="{{ Storage::url($file->path) }}" alt="1231">
+                                                </div>
+                                            @endif
+                                        @endforeach
                                         <p class="text-muted small mb-0">Приоритет</p>
                                         <p class="small">{{ $request->priority->title }}</p>
                                     </div>
