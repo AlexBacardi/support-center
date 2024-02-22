@@ -29,13 +29,15 @@ class StoreRequest extends FormRequest
             'files.*' => ['mimes:png,jpg,jpeg,doc,docx,pdf'],
         ];
     }
-
+//'files.*' => ['mimes:png,jpg,jpeg,doc,docx,pdf'],
     public function attributes()
     {
         return [
             'title' => 'Тема',
             'descr' => 'Описание',
             'priority_id' => 'Приоритет',
+            'files' => 'Вложение',
+            'files.0' => 'Вложение',
         ];
     }
 }

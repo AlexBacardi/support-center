@@ -6,7 +6,6 @@ use App\Models\File;
 use App\Models\Request as ModelsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Termwind\Components\Dd;
 
 class RequestService
 {
@@ -17,7 +16,11 @@ class RequestService
 
         $data['status_id'] = 1;
 
-        $paths = $data['files'];
+        if(isset($data['files'])) {
+
+            $paths = $data['files'];
+
+        }
 
         unset($data['files']);
 
@@ -39,19 +42,33 @@ class RequestService
 
         $ModelsRequest = ModelsRequest::firstOrCreate($data);
 
-        $files['request_id'] = $ModelsRequest->id;
+        if (isset($paths)) {
 
-        foreach ($paths as $path) {
+            $files['request_id'] = $ModelsRequest->id;
 
-            $files['name'] = $path->getClientOriginalName();
+            foreach ($paths as $path) {
 
-            $files['extension'] = $path->extension();
+                $files['name'] = $path->getClientOriginalName();
 
-            $files['path'] = Storage::disk('local')->put($folderPath . $files['request_id'], $path);
+                $files['extension'] = $path->extension();
 
-            File::create($files);
+                if ($path->extension() == 'pdf' || $path->extension() == 'doc' || $path->extension() == 'docx') {
+
+                    $files['path'] = Storage::disk('local')->put($folderPath . $files['request_id'], $path);
+
+                } else {
+
+                    $files['path'] = Storage::disk('public')->put($folderPath . $files['request_id'], $path);
+
+                }
+
+
+                File::create($files);
+
+            }
 
         }
+
 
         return $ModelsRequest;
 

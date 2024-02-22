@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Main\CommentController;
+use App\Http\Controllers\Main\FileController;
 use App\Http\Controllers\Main\RequestController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/other/create', [RequestController::class, 'createOtherRequest'])->name('other.create');
 
     Route::post('/other/create', [RequestController::class, 'storeOtherRequest']);
+
+    Route::get('/download/{file}', [FileController::class, 'downLoad'])->name('download.file');
 
 });
 

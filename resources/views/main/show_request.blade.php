@@ -129,18 +129,32 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-11 offset-1">
+                                    <div class="col-11 offset-1 mt-2">
                                         <p class="m-0 text-muted small">Описание</p>
-                                        <p>
+                                        <p class="mt-1">
                                             {{ $request->descr }}
                                         </p>
                                         @foreach ($files as $file)
                                             @if ($file->extension == 'doc' || $file->extension == 'docx' || $file->extension == 'pdf')
-                                                <a href="{{ Storage::url($file->path) }}" download>{{ $file->name }}</a>
+                                                <div class="mb-2">
+                                                    <a href="{{ route('download.file', $file) }}">{{ $file->name }}</a>
+                                                </div>
                                             @else
-                                                <div class="tiket-img mb-1">
-                                                    <img src="{{ asset('build/img/logo/logo.png') }}" alt="1231">
-                                                    <img src="{{ Storage::url($file->path) }}" alt="1231">
+                                                <div class="tiket-img mb-2">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imgModal{{$loop->iteration}}"><img src="{{ Storage::url("{$file->path}") }}" alt="123123"></a>
+                                                </div>
+                                                <div class="modal fade" id="imgModal{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center" style="width: auto">
+                                                                <img src="{{ Storage::url("{$file->path}") }}" alt="" class="img-fluid">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             @endif
                                         @endforeach

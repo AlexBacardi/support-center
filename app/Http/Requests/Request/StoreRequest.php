@@ -39,6 +39,8 @@ class StoreRequest extends FormRequest
             'descr' => 'Описание',
             'satellite_id' => 'Выберите спутник',
             'priority_id' => 'Приоритет',
+            'files' => 'Вложение',
+            'files.0' => 'Вложение',
         ];
     }
 }

@@ -31,14 +31,14 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="titleId" class="form-label text-muted">Тема</label>
-                                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="titleId" name="title">
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="titleId" name="title" value="{{ old('title') }}">
                                     @error('title')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div>
-                                    <label class="mb-3descrId" class="form-label text-muted">Описание</label>
-                                    <textarea class="form-control @error('descr') is-invalid @enderror" id="descrId" rows="3" name="descr"></textarea>
+                                    <label for="descrId" class="form-label text-muted">Описание</label>
+                                    <textarea class="form-control @error('descr') is-invalid @enderror" id="descrId" rows="8" name="descr">{{ old('descr') }}</textarea>
                                     @error('descr')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -58,6 +58,9 @@
                                 <div>
                                     <label for="formFileMultiple" class="form-label">Вложение (не обязательно)</label>
                                     <input class="form-control" type="file" name="files[]" id="formFileMultiple" multiple >
+                                    @error('files*')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mt-4">
                                     <button type="submit" class="btn btn-primary btn-sm">Создать</button>
