@@ -11,8 +11,8 @@ class FileController extends Controller
     public function downLoad(File $file)
     {
 
-        $filePath = Storage::path($file->path);
-        
+        $filePath = public_path() . Storage::url($file->path);
+
         $mimeType = Storage::mimeType($filePath);
 
         $headers = [['Content-Type' => $mimeType]];

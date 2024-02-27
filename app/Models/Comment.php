@@ -26,4 +26,9 @@ class Comment extends Model
     {
         $this->belongsTo(Request::class, 'request_id', 'id');
     }
+
+    public function files()
+    {
+        return $this->hasMany(File::class, 'comment_id', 'id');
+    }
 }

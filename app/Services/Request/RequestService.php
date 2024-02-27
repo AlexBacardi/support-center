@@ -20,9 +20,9 @@ class RequestService
 
             $paths = $data['files'];
 
+            unset($data['files']);
         }
 
-        unset($data['files']);
 
         if ($request->is('technical-support/create')) {
 
@@ -52,16 +52,7 @@ class RequestService
 
                 $files['extension'] = $path->extension();
 
-                if ($path->extension() == 'pdf' || $path->extension() == 'doc' || $path->extension() == 'docx') {
-
-                    $files['path'] = Storage::disk('local')->put($folderPath . $files['request_id'], $path);
-
-                } else {
-
-                    $files['path'] = Storage::disk('public')->put($folderPath . $files['request_id'], $path);
-
-                }
-
+                $files['path'] = Storage::disk('public')->put($folderPath . $files['request_id'], $path);
 
                 File::create($files);
 

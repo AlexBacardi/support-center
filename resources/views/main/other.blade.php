@@ -36,7 +36,7 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div>
+                                <div class="mb-3">
                                     <label for="descrId" class="form-label text-muted">Описание</label>
                                     <textarea class="form-control @error('descr') is-invalid @enderror" id="descrId" rows="8" name="descr">{{ old('descr') }}</textarea>
                                     @error('descr')

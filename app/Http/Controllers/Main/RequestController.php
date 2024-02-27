@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Other\StoreRequest as OtherStoreRequest;
 use App\Http\Requests\Request\StoreRequest;
+use App\Models\Comment;
 use App\Models\Priority;
 use App\Models\Request;
 use App\Models\Satellite;

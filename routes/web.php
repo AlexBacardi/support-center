@@ -35,7 +35,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     Route::post('/other/create', [RequestController::class, 'storeOtherRequest']);
 
-    Route::get('/download/{file}', [FileController::class, 'downLoad'])->name('download.file');
+    Route::get('/load/{file}', [FileController::class, 'downLoad'])->name('download.file');
 
 });
 

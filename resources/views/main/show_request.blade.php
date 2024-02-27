@@ -37,19 +37,25 @@
                                 </div>
                                 <div class="col-9 px-2 ms-3 ms-md-2">
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="floatingTextarea" form="request-form" name="message"></textarea>
-                                        <label for="floatingTextarea" >Прокоментировать запрос...</label>
+                                        <textarea class="form-control @error('message') is-invalid @enderror" id="floatingTextarea" form="request-form" name="message"></textarea>
+                                        <label for="floatingTextarea">Прокоментировать запрос...</label>
+                                        @error('message')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="row request-show-form">
                                 <div class="col-10 col-md-8 offset-1">
-                                    <form action="{{ route('servicedesk.comments.store', $request->id)}}" method="POST" enctype="multipart/form-data" id="request-form">
+                                    <form action="{{ route('servicedesk.comments.store', $request->id) }}" method="POST" enctype="multipart/form-data" id="request-form">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="formFileMultiple" class="form-label text-muted">Прикрепить файлы</label>
                                             <input class="form-control form-control-sm" type="file" id="formFileMultiple" name="files[]" multiple>
                                         </div>
+                                        @error('files*')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                         <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
                                         <button type="reset" class="btn btn-primary btn-sm">Отмена</button>
                                     </form>
@@ -78,42 +84,31 @@
                                                     <p>
                                                         {{ $comment->message }}
                                                     </p>
-                                                    <!--
-                                                    <div class="tiket-img mb-1">
-                                                        <button type="button" data-bs-toggle="modal" data-bs-target="#imgModal"><img src="{{ asset('img/23.jpg') }}" alt=""></button>
-                                                    </div>
-                                                    <div class="tiket-img mb-1">
-                                                        <button type="button" data-bs-toggle="modal" data-bs-target="#imgModal1"><img src="{{ asset('img/image-2023-08-30-10-58-52-962.png') }}" alt=""></button>
-                                                    </div> -->
+                                                    @foreach ($comment->files as $commentFile)
+                                                        @if ($commentFile->extension == 'doc' || $commentFile->extension == 'docx' || $commentFile->extension == 'pdf')
+                                                            <div class="mb-2">
+                                                                <a href="{{ route('download.file', $commentFile) }}">{{ $commentFile->name }}</a>
+                                                            </div>
+                                                        @else
+                                                            <div class="tiket-img mb-2">
+                                                                <a href="#" data-bs-toggle="modal" data-bs-target="#imgModalComment{{ $loop->iteration }}"><img src="{{ Storage::url("{$commentFile->path}") }}" alt="123123"></a>
+                                                            </div>
 
-                                                    <!-- Modal -->
-                                                    {{--TODO сделать модальные окна  --}}
-                                                    <!--<div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
-                                                        <div class="modal-dialog  modal-xl">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body text-center" style="width: auto">
-                                                                    <img src="{{ asset('img/23.jpg') }}" alt="" class="img-fluid">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal fade" id="imgModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
-                                                        <div class="modal-dialog  modal-xl">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body text-center" style="width: auto">
-                                                                    <img src="{{ asset('img/image-2023-08-30-10-58-52-962.png') }}" alt="" class="img-fluid">
+                                                            <div class="modal fade" id="imgModalComment{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title">image</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <img class="img-fluid" src="{{ Storage::url("{$commentFile->path}") }}" alt="">
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div> -->
+                                                        @endif
+                                                    @endforeach
                                                 </div>
                                                 <hr class="mt-3">
                                             </div>
@@ -141,17 +136,18 @@
                                                 </div>
                                             @else
                                                 <div class="tiket-img mb-2">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imgModal{{$loop->iteration}}"><img src="{{ Storage::url("{$file->path}") }}" alt="123123"></a>
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#imgModal{{ $loop->iteration }}"><img src="{{ Storage::url("{$file->path}") }}" alt="123123"></a>
                                                 </div>
-                                                <div class="modal fade" id="imgModal{{$loop->iteration}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height: auto">
+
+                                                <div class="modal fade" id="imgModal{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="exampleModalLabel">image</h1>
+                                                                <h5 class="modal-title">image</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <div class="modal-body text-center" style="width: auto">
-                                                                <img src="{{ Storage::url("{$file->path}") }}" alt="" class="img-fluid">
+                                                            <div class="modal-body">
+                                                                <img class="img-fluid" src="{{ Storage::url("{$file->path}") }}" alt="">
                                                             </div>
                                                         </div>
                                                     </div>

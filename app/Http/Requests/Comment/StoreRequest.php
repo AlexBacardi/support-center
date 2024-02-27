@@ -23,6 +23,17 @@ class StoreRequest extends FormRequest
     {
         return [
             'message' => ['required', 'string'],
+            'files' => ['nullable', 'array'],
+            'files.*' => ['mimes:png,jpg,jpeg,doc,docx,pdf'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'message' => 'Комментарий',
+            'files' => 'Вложение',
+            'files.0' => 'Вложение',
         ];
     }
 }
