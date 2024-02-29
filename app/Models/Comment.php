@@ -19,12 +19,12 @@ class Comment extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function request()
     {
-        $this->belongsTo(Request::class, 'request_id', 'id');
+        return $this->belongsTo(Request::class, 'request_id', 'id');
     }
 
     public function files()

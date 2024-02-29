@@ -27,6 +27,10 @@ class RegisterController extends Controller
             'password' => Hash::make($date['password']),
         ]);
 
+        $user->profile()->create([
+            'user_id' => $user->id,
+        ]);
+
         event(new Registered($user));
 
         Auth::login($user);

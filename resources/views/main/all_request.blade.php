@@ -69,7 +69,7 @@
                                                 <td><a href="{{ route('servicedesk.show', $request->id) }}">{{ $request->title }}</a></td>
                                                 <td class="d-none d-lg-table-cell">ТелеманикаНет</td>
                                                 <td class="text-center small">{{ $request->status->title}}</td>
-                                                <td class="d-none d-lg-table-cell text-center">Компания</td>
+                                                <td class="d-none d-lg-table-cell text-center">{{ auth()->user()->profile->company_name}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

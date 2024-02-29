@@ -41,9 +41,3 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 
 
-
-
-Route::get('/cabinet', fn () => view('cabinet.profile'))->middleware(['auth', 'verified'])->name('cabinet.profile');
-Route::get('/cabinet/edit', fn () => view('cabinet.profile_edit'))->middleware(['auth', 'verified'])->name('cabinet.edit');
-
-

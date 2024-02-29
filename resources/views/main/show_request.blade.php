@@ -33,7 +33,7 @@
                         <div class="col-12 col-lg-8">
                             <div class="row request-show-message">
                                 <div class="col-2 col-md-1">
-                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
+                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar)? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar)}}">
                                 </div>
                                 <div class="col-9 px-2 ms-3 ms-md-2">
                                     <div class="form-floating">
@@ -73,10 +73,10 @@
                                         <div class="request-answer">
                                             <div class="row align-items-center mb-2">
                                                 <div class="col-2 col-md-1">
-                                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
+                                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null($comment->user->profile->avatar)? asset('build/img/avatars/avatar.png') : asset('storage/' . $comment->user->profile->avatar)}}">
                                                 </div>
                                                 <div class="col-9">
-                                                    <p class="m-0 fw-medium small">Компания <span class="small text-muted">{{ $comment->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
+                                                    <p class="m-0 fw-medium small">{{ $comment->user->profile->company_name }} <span class="small text-muted">{{ $comment->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -187,10 +187,10 @@
                                 <div class="col-12">
                                     <div class="row align-items-center">
                                         <div class="col-2 p-0 text-center">
-                                            <img class="avatar avatar-32 bg-light rounded-circle text-white p-1" src="https://raw.githubusercontent.com/twbs/icons/main/icons/person.svg">
+                                            <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar)? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar)}}">
                                         </div>
                                         <div class="col-10 ps-3">
-                                            <p class="m-0 fw-medium">Телематика</p>
+                                            <p class="m-0 fw-medium">{{ auth()->user()->profile->company_name }}</p>
                                             <p class="m-0"><span class="small text-muted">инициатор</span></p>
                                         </div>
                                     </div>
