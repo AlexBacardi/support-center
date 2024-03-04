@@ -41,3 +41,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 
 
+Route::get('/admin', function() {
+    return view('layouts.admin_main');
+});
+
+
