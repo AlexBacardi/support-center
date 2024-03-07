@@ -1,0 +1,43 @@
+
+body {
+    overflow: auto !important;
+}
+
+
+.left-navbar {
+    width: 200px !important;
+    -webkit-transform: none  !important;
+    transform: none !important;
+    visibility: visible !important;
+    height: 100%;
+}
+
+main, footer {
+    margin-left: 200px;
+}
+
+.collapse-link[aria-expanded="true"] .fa-angle-down {
+    transform: rotate(180deg);
+}
+
+.icon {
+    color: rgba(0, 0, 0, .15);
+    font-size: 60px;
+    transition: transform 0.3s;
+}
+
+.card-body:hover .icon {
+    transform: scale(1.2);
+}
+
+@media (max-width: 992px) {
+    .left-navbar {
+        width: 60px !important;
+    }
+
+    main, footer {
+        margin-left: 60px;
+    }
+}
+
+
