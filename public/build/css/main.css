@@ -23,6 +23,10 @@
     flex-direction: column;
 }
 
+.profile, .profile-edit {
+    margin-top: -280px;
+}
+
 /* -------------------- endGeneral -------------------------*/
 
 /* -------------------- Header -------------------------*/

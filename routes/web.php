@@ -42,7 +42,15 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 
 Route::get('/admin', function() {
-    return view('layouts.admin_main');
-});
+    return view('admin.index');
+})->name('admin.index');
+
+Route::get('/admin/all-request', function() {
+    return view('admin.all_request');
+})->name('admin.all-request');
+
+Route::get('/admin/show-request', function() {
+    return view('admin.show_request');
+})->name('admin.show-request');
 
 

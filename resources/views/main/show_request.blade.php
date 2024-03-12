@@ -160,7 +160,6 @@
                                     <hr class="mt-3">
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-12 col-lg-4">
                             <div class="row request-show-action">
