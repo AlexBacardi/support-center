@@ -16,7 +16,7 @@
                         <i class="fa-solid ms-auto me-2 fa-users d-none d-sm-inline icon py-2"></i>
                     </div>
                     <div class="card-footer py-3 d-flex">
-                        <a class="nav-link" href="#">Подробнее</a>
+                        <a class="nav-link" href="{{ route('admin.all-users')}}">Подробнее</a>
                         <span class="ms-auto">
                             <i class="fas fa-angle-right"></i>
                         </span>
@@ -46,7 +46,7 @@
                         <i class="fa-solid fa-rotate ms-auto me-2 d-none d-sm-inline fa-users icon py-2"></i>
                     </div>
                     <div class="card-footer py-3 d-flex">
-                        <a class="nav-link" href="#">Подробнее</a>
+                        <a class="nav-link" href="{{ route('admin.all-request', ['type' => 2])}}">Подробнее</a>
                         <span class="ms-auto">
                             <i class="fas fa-angle-right"></i>
                         </span>

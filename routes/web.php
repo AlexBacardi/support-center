@@ -45,12 +45,17 @@ Route::get('/admin', function() {
     return view('admin.index');
 })->name('admin.index');
 
-Route::get('/admin/all-request', function() {
+Route::get('/admin/all-request/', function() {
     return view('admin.all_request');
 })->name('admin.all-request');
 
 Route::get('/admin/show-request', function() {
     return view('admin.show_request');
 })->name('admin.show-request');
+
+
+Route::get('/admin/all-users', function() {
+    return view('admin.all_users');
+})->name('admin.all-users');
 
 

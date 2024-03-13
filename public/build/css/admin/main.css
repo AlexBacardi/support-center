@@ -39,4 +39,9 @@ main, footer {
     }
 }
 
+table tbody td i {
+    font-size: 25px;
+    color: #006400;
+}
+
 

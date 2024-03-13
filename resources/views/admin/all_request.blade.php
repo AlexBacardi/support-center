@@ -40,7 +40,8 @@
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">№ TT</th>
+                                <th class="text-center" scope="col">№</th>
+                                <th scope="col">тип</th>
                                 <th scope="col">Тема</th>
                                 <th scope="col">Инициатор</th>
                                 <th scope="col">Спутник</th>
@@ -51,7 +52,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
+                                <th class="text-center" scope="row">1</th>
+                                <td class="text-center"><i class="fa-solid fa-wrench"></i></td>
                                 <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
                                 <td>Сервис-Нафта</td>
                                 <td>express 80</td>
@@ -60,7 +62,10 @@
                                 <td>Новая</td>
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
+                                <th class="text-center" scope="row">2</th>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-wrench"></i>
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.show-request')}}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</a>
                                 </td>
@@ -71,7 +76,10 @@
                                 <td>Новая</td>
                             </tr>
                             <tr>
-                                <th scope="row">3</th>
+                                <th class="text-center" scope="row">3</th>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-wrench"></i>
+                                </td>
                                 <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
                                 <td>Сервис-Нафта</td>
                                 <td>express 80</td>
@@ -80,7 +88,10 @@
                                 <td>Новая</td>
                             </tr>
                             <tr>
-                                <th scope="row">4</th>
+                                <th class="text-center" scope="row">4</th>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-wrench"></i>
+                                </td>
                                 <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
                                 <td>Сервис-Нафта</td>
                                 <td>express 80</td>
@@ -89,7 +100,10 @@
                                 <td>Новая</td>
                             </tr>
                             <tr>
-                                <th scope="row">5</th>
+                                <th class="text-center" scope="row">5</th>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-wrench"></i>
+                                </td>
                                 <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
                                 <td>Сервис-Нафта</td>
                                 <td>express 80</td>
@@ -98,7 +112,10 @@
                                 <td>Новая</td>
                             </tr>
                             <tr>
-                                <th scope="row">6</th>
+                                <th class="text-center" scope="row">6</th>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-rotate"></i>
+                                </td>
                                 <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
                                 <td>Сервис-Нафта</td>
                                 <td>express 80</td>
@@ -107,7 +124,10 @@
                                 <td>Новая</td>
                             </tr>
                             <tr>
-                                <th scope="row">7</th>
+                                <th class="text-center" scope="row">7</th>
+                                <td class="text-center">
+                                    <i class="fa-solid fa-rotate"></i>
+                                </td>
                                 <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
                                 <td>Сервис-Нафта</td>
                                 <td>express 80</td>

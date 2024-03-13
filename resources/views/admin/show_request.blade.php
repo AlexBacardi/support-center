@@ -12,7 +12,7 @@
                 <div class="row mb-5">
                     <div class="col-12 col-md-10 col-xl-6">
                         <div class="d-flex align-items-start">
-                            <img class="avatar avatar-48 bg-light rounded-circle text-white p-1 d-none d-md-inline" src="{{ is_null(auth()->user()->profile->avatar) ? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar) }}">
+                            <img class="avatar avatar-48 bg-light rounded-circle text-white p-1 d-none d-md-inline" src="{{  asset('build/img/avatars/avatar.png')  }}">
                             <div class="form-floating w-100 ms-1">
                                 <textarea class="form-control @error('message') is-invalid @enderror" id="floatingTextarea" form="request-form" name="message"></textarea>
                                 <label for="floatingTextarea">Ответить...</label>
@@ -47,7 +47,7 @@
                         комментарии
                     </div>
                 </div>
-                <div class="row ps-md-3">
+                <div class="row ps-md-3 mb-3">
                     <div class="col-12 col-md-10 col-lg-10 col-xl-8">
                         <hr class="my-3">
                         <p class="m-0 fw-medium small mb-3">Подробности <span class="small text-muted">12/03/2024 14:30 </span></p>
@@ -60,15 +60,19 @@
                         <hr class="mt-3">
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-2">
-                <p>Действия</p>
-                <form action="#" method="post">
-                    @csrf
-                    <a href="">решено</a>
-                    <a href=""></a>
-                    <a href=""></a>
-                </form>
+                <div class="row ps-md-3">
+                    <div class="col-7 col-md-5 col-lg-3">
+                        <form action="#" method="POST">
+                            <label class="form-label">Действия</label>
+                            <select class="form-select mb-3" name="priority_id" aria-label="Default select example">
+                                <option selected disabled>Выбрать</option>
+                                    <option value="">Закрыть</option>
+                                    <option value="">Открыть</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
