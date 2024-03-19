@@ -60,7 +60,7 @@
                         <hr class="mt-3">
                     </div>
                 </div>
-                <div class="row ps-md-3">
+                <div class="row ps-md-3 mb-5">
                     <div class="col-7 col-md-5 col-lg-3">
                         <form action="#" method="POST">
                             <label class="form-label">Действия</label>

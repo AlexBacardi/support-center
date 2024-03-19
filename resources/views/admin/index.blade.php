@@ -61,7 +61,7 @@
                         <i class="fa-solid fa-envelope-open-text ms-auto d-none d-sm-inline me-2 fa-users icon py-2"></i>
                     </div>
                     <div class="card-footer py-3 d-flex">
-                        <a class="nav-link" href="#">Подробнее</a>
+                        <a class="nav-link" href="{{ route('admin.all-complaints')}}">Подробнее</a>
                         <span class="ms-auto">
                             <i class="fas fa-angle-right"></i>
                         </span>

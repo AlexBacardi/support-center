@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-md-12 mb-3">
-                <h4>Пользователи</h4>
+                <h4>Жалобы</h4>
             </div>
         </div>
         <div class="row mb-5 gy-2 align-items-center">
@@ -31,45 +31,23 @@
                         <thead>
                             <tr>
                                 <th class="text-center" scope="col">№</th>
-                                <th scope="col">Имя</th>
-                                <th scope="col">E-mail</th>
+                                <th scope="col">Описание</th>
                                 <th scope="col">Компания</th>
-                                <th scope="col" class="w-25">Дата регистрации</th>
-                                <th scope="col">Статус</th>
+                                <th scope="col">Дата</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th class="text-center" scope="row">1</th>
-                                <td>alex</td>
-                                <td><a href="{{ route('admin.show-user')}}">mirox@mail.ru</a></td>
+                                <td>описание жалобы</td>
                                 <td>Сервис-Нафта</td>
-                                <td class="w-25">10.12.2023</td>
-                                <td>Активен</td>
+                                <td>10.12.2023</td>
                             </tr>
                             <tr>
                                 <th class="text-center" scope="row">2</th>
-                                <td>alex</td>
-                                <td>mirox@mail.ru</td>
+                                <td>описание жалобы №2</td>
                                 <td>Сервис-Нафта</td>
                                 <td>10.12.2023</td>
-                                <td>Активен</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">3</th>
-                                <td>alex</td>
-                                <td>mirox@mail.ru</td>
-                                <td>Сервис-Нафта</td>
-                                <td>10.12.2023</td>
-                                <td>Активен</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">4</th>
-                                <td>alex</td>
-                                <td>mirox@mail.ru</td>
-                                <td>Сервис-Нафта</td>
-                                <td>10.12.2023</td>
-                                <td>Активен</td>
                             </tr>
                         </tbody>
                     </table>

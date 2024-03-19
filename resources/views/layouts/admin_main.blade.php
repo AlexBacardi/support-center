@@ -68,7 +68,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none ms-lg-3">
+                        <a href="{{ route('admin.all-users')}}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none ms-lg-3">
                             <i class="fa-solid fa-users"></i><span class="ms-2 d-none d-lg-inline">Пользователи</span>
                         </a>
                     </li>

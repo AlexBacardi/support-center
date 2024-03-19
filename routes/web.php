@@ -46,7 +46,7 @@ Route::get('/admin', function() {
 })->name('admin.index');
 
 Route::get('/admin/all-request/', function() {
-    return view('admin.all_request');
+    return view('admin.all_requests');
 })->name('admin.all-request');
 
 Route::get('/admin/show-request', function() {
@@ -57,5 +57,13 @@ Route::get('/admin/show-request', function() {
 Route::get('/admin/all-users', function() {
     return view('admin.all_users');
 })->name('admin.all-users');
+
+Route::get('/admin/Show-user', function() {
+    return view('admin.show_user');
+})->name('admin.show-user');
+
+Route::get('/admin/all-complaints', function() {
+    return view('admin.all_complaints');
+})->name('admin.all-complaints');
 
 
