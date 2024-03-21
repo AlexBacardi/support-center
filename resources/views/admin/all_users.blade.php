@@ -39,38 +39,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th class="text-center" scope="row">1</th>
-                                <td>alex</td>
-                                <td><a href="{{ route('admin.show-user')}}">mirox@mail.ru</a></td>
-                                <td>Сервис-Нафта</td>
-                                <td class="w-25">10.12.2023</td>
-                                <td>Активен</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">2</th>
-                                <td>alex</td>
-                                <td>mirox@mail.ru</td>
-                                <td>Сервис-Нафта</td>
-                                <td>10.12.2023</td>
-                                <td>Активен</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">3</th>
-                                <td>alex</td>
-                                <td>mirox@mail.ru</td>
-                                <td>Сервис-Нафта</td>
-                                <td>10.12.2023</td>
-                                <td>Активен</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">4</th>
-                                <td>alex</td>
-                                <td>mirox@mail.ru</td>
-                                <td>Сервис-Нафта</td>
-                                <td>10.12.2023</td>
-                                <td>Активен</td>
-                            </tr>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <th class="text-center" scope="row">{{ $user->id }}</th>
+                                    <td><a href="{{ route('admin.users.show', $user)}}">{{ $user->name }}</a></td>
+                                    <td><a href="{{ route('admin.users.show', $user)}}">{{ $user->email }}</a></td>
+                                    <td>{{ $user->profile->company_name }}</td>
+                                    <td class="w-25">{{ $user->created_at->format('d-m-Y') }}</td>
+                                    <td class="text-danger">Активен</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

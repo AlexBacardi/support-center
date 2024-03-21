@@ -39,29 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 });
 
-
-
-Route::get('/admin', function() {
-    return view('admin.index');
-})->name('admin.index');
-
-Route::get('/admin/all-request/', function() {
-    return view('admin.all_requests');
-})->name('admin.all-request');
-
-Route::get('/admin/show-request', function() {
-    return view('admin.show_request');
-})->name('admin.show-request');
-
-
-Route::get('/admin/all-users', function() {
-    return view('admin.all_users');
-})->name('admin.all-users');
-
-Route::get('/admin/Show-user', function() {
-    return view('admin.show_user');
-})->name('admin.show-user');
-
+//  TODO убрать роут с жалобами в админ часть
 Route::get('/admin/all-complaints', function() {
     return view('admin.all_complaints');
 })->name('admin.all-complaints');

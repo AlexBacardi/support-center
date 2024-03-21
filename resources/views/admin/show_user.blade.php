@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-md-12 mb-3">
-                <h4>Имя компании</h4>
+                <h4>{{ $user->profile->company_name }}</h4>
             </div>
         </div>
         <div class="row">
@@ -13,39 +13,39 @@
                     <div class="card-body pb-2 pt-0 px-1 px-md-3 d-flex flex-column mt-3">
                         <div class="d-flex ">
                             <p class="w-50">Id</p>
-                            <p>1</p>
+                            <p>{{ $user->id}}</p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">имя</p>
-                            <p class="w-50">alex</p>
+                            <p class="w-50">{{ $user->name }}</p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">Компания</p>
-                            <p class="w-50">Сервис-нафта</p>
+                            <p class="w-50">{{$user->profile->company_name}}</p>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-flex align-items-center">
                             <p class="w-50">Аватар</p>
-                            <p class="w-50">аватар</p>
+                            <p class="w-50"><img class="avatar avatar-64 bg-light rounded-circle text-white p-2" src="{{ is_null($user->profile->avatar) ? asset('build/img/avatars/avatar.png') : asset('storage/' . $user->profile->avatar)}}"></p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">Почта</p>
-                            <p class="w-50">mirox1999@mail.ru</p>
+                            <p class="w-50">{{ $user->email }}</p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">Дата рег.</p>
-                            <p class="w-50">12.12.2023</p>
+                            <p class="w-50">{{ $user->created_at->format('d-m-Y') }}</p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">Обращения</p>
-                            <p class="w-50">35</p>
+                            <p class="w-50">{{ $user->requests()->count()}}</p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">Жалобы</p>
-                            <p class="w-50">12</p>
+                            <p class="w-50 text-danger">12</p>
                         </div>
                         <div class="d-flex">
                             <p class="w-50">Статус</p>
-                            <p class="w-50">Активен</p>
+                            <p class="w-50 text-danger">Активен</p>
                         </div>
                         <div class="d-flex align-items-center">
                             <p class="w-50 m-0">Блок до:</p>

@@ -29,6 +29,13 @@ class Request extends Model
 
     }
 
+    public function satellite()
+    {
+
+        return $this->belongsTo(Satellite::class, 'satellite_id', 'id');
+
+    }
+
     public function status()
     {
 

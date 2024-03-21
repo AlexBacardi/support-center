@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Comment\StoreRequest;
 use App\Models\Request as ModelsRequest;
 use App\Services\Comment\CommentService;
-use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -19,7 +18,7 @@ class CommentController extends Controller
 
         $this->commentServices->create($data, $request);
 
-        return redirect()->route('servicedesk.show', $request->id);
+        return redirect()->back();
 
     }
 }

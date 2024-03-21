@@ -44,4 +44,13 @@ table tbody td i {
     color: #006400;
 }
 
+.tiket-img {
+    width: 250px;
+    height: auto;
+}
+
+.tiket-img img {
+    width: 100%;
+}
+
 

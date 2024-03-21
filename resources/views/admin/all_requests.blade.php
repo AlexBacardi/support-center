@@ -1,10 +1,10 @@
 @extends('layouts.admin_main')
-@section('title', 'Заявки')
+@section('title', 'Обращения')
 @section('content')
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-md-12 mb-3">
-                <h4>Заявки</h4>
+                <h4>Обращения</h4>
             </div>
         </div>
         <div class="row mb-5 gy-2 align-items-center">
@@ -51,90 +51,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th class="text-center" scope="row">1</th>
-                                <td class="text-center"><i class="fa-solid fa-wrench"></i></td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">2</th>
-                                <td class="text-center">
-                                    <i class="fa-solid fa-wrench"></i>
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.show-request')}}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</a>
-                                </td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">3</th>
-                                <td class="text-center">
-                                    <i class="fa-solid fa-wrench"></i>
-                                </td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">4</th>
-                                <td class="text-center">
-                                    <i class="fa-solid fa-wrench"></i>
-                                </td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">5</th>
-                                <td class="text-center">
-                                    <i class="fa-solid fa-wrench"></i>
-                                </td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">6</th>
-                                <td class="text-center">
-                                    <i class="fa-solid fa-rotate"></i>
-                                </td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="row">7</th>
-                                <td class="text-center">
-                                    <i class="fa-solid fa-rotate"></i>
-                                </td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, nulla?</td>
-                                <td>Сервис-Нафта</td>
-                                <td>express 80</td>
-                                <td>TN800012</td>
-                                <td>Medium</td>
-                                <td>Новая</td>
-                            </tr>
+                            @foreach ($requests as $request)
+                                <tr>
+                                    <th class="text-center" scope="row">{{ $request->id }}</th>
+                                    <td>
+                                        @if ($request->type_id == 1)
+                                            <i class="fa-solid fa-wrench"></i>
+                                        @else
+                                            <i class="fa-solid fa-rotate"></i>
+                                        @endif
+                                    </td>
+                                    <td><a href="{{ route('admin.requests.show', $request )}}">{{ $request->title }}</a></td>
+                                    <td>{{ $request->user->profile->company_name }}</td>
+                                    <td>{{ $request->satellite->title ?? ''}}</td>
+                                    <td>{{ $request->site_id ?? ''}}</td>
+                                    <td>{{ $request->priority->title }}</td>
+                                    <td>{{ $request->status->title}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -47,6 +47,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('statuses')->insert([
             [
+                'title' => 'Новая',
+            ],
+            [
                 'title' => 'В работе',
             ],
             [

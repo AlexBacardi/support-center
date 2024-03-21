@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Other\StoreRequest as OtherStoreRequest;
 use App\Http\Requests\Request\StoreRequest;
-use App\Models\Comment;
 use App\Models\Priority;
 use App\Models\Request;
 use App\Models\Satellite;
 use App\Services\Request\RequestService;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request as HttpRequest;
 
 class RequestController extends Controller
 {
@@ -20,7 +19,7 @@ class RequestController extends Controller
     public function index()
     {
 
-        $allUserRequest = Request::where('user_id', auth()->user()->id)->get();
+        $allUserRequest = Request::where('user_id', auth()->user()->id)->latest('created_at')->get();
 
         return view('main.all_request', compact('allUserRequest'));
 
@@ -70,14 +69,28 @@ class RequestController extends Controller
 
     }
 
-    public function show(Request $request)
+    public function show(Request $request, HttpRequest $httprequest)
     {
 
         $comments = $request->comments()->latest('created_at')->get();
 
         $files = $request->files;
 
-        return view('main.show_request', compact('request', 'comments', 'files'));
+        $view = $this->requestServece->getView($httprequest, $request);
+
+        return view($view, compact('request', 'comments', 'files'));
 
     }
+
+
+    public function adminAllRequest(HttpRequest $request)
+    {
+        $type = $request->type ?? 1;
+
+        $requests = Request::where('type_id', $type)->latest('created_at')->get();
+
+        return view('admin.all_requests', compact('requests'));
+
+    }
+
 }

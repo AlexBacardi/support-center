@@ -1,18 +1,18 @@
 <?php
 
-namespace App\View\Composers;
+namespace App\View\Composers\Admin;
 
 use App\Models\Request;
 use Illuminate\View\View;
 
-class CountRequestComposer
+class CountAllRequestComposer
 {
     public function compose(View $view)
     {
 
         if(auth()->check()){
 
-        $requestCount = Request::where('user_id', auth()->user()->id)->whereBetween('status_id', [1, 2])->count();
+        $requestCount = Request::where('type_id', 1)->where('status_id', 1)->count();
 
         $view->with('requestCount', $requestCount);
 

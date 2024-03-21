@@ -51,12 +51,15 @@
                         </a>
                         <ul class="collapse nav mt-1 ms-lg-4" id="collapseMenu1">
                             <li class="w-100 py-2">
-                                <a href="{{ route('admin.all-request')}}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none">
-                                    <i class="fa-solid fa-screwdriver-wrench"></i><span class="ms-2 d-none d-lg-inline">Заявки</span><span class="ms-2 badge text-bg-secondary d-none d-lg-inline">4</span>
+                                <a href="{{ route('admin.requests')}}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i><span class="ms-2 d-none d-lg-inline">Заявки</span>
+                                    @if($requestCount > 0)
+                                    <span class="ms-2 badge text-bg-secondary d-none d-lg-inline">{{ $requestCount }}</span>
+                                    @endif
                                 </a>
                             </li>
                             <li class="w-100 py-2">
-                                <a href="#" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none">
+                                <a href="{{ route('admin.requests', ['type' => 2]) }}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none">
                                     <i class="fa-solid fa-rotate"></i><span class="ms-2 d-none d-lg-inline">Прочее</span><span class="ms-2 badge text-bg-secondary d-none d-lg-inline">4</span>
                                 </a>
                             </li>
@@ -68,7 +71,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('admin.all-users')}}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none ms-lg-3">
+                        <a href="{{ route('admin.users')}}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none ms-lg-3">
                             <i class="fa-solid fa-users"></i><span class="ms-2 d-none d-lg-inline">Пользователи</span>
                         </a>
                     </li>

@@ -64,4 +64,29 @@ class RequestService
         return $ModelsRequest;
 
     }
+
+    public function getView(Request $request, ModelsRequest $ModelsRequest)
+    {
+        if ($request->is('admin/requests/*')) {
+
+            $this->setStatus($ModelsRequest);
+
+            return 'admin.show_request';
+
+        }
+
+        return 'main.show_request';
+
+    }
+
+    private function setStatus(ModelsRequest $ModelsRequest)
+    {
+
+        if ($ModelsRequest->status_id == 1) {
+
+            $ModelsRequest->update(['status_id' => 2]);
+
+        }
+
+    }
 }
