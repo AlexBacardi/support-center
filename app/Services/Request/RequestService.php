@@ -67,7 +67,7 @@ class RequestService
 
     public function getView(Request $request, ModelsRequest $ModelsRequest)
     {
-        if ($request->is('admin/requests/*')) {
+        if ($request->is('admin-panel/requests/*')) {
 
             $this->setStatus($ModelsRequest);
 

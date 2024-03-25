@@ -34,15 +34,18 @@
                                         Запросы @if ($requestCount > 0) <span class="badge text-bg-info d-none d-md-inline bg-white">{{ $requestCount }}</span> @endif
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ route('servicedesk.all-request') }}">Мои Запросы @if ($requestCount > 0) <span class="badge text-bg-secondary">{{ $requestCount }}</span> @endif</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('profiles.show', auth()->user()->id)}}">Профиль</a></li>
+                                        @if (auth()->user()->isAdmin())
+                                            <li><a class="dropdown-item" href="{{ route('admin.index')}}">Админ Панель</a></li>
+                                        @else
+                                            <li><a class="dropdown-item" href="{{ route('servicedesk.all-request') }}">Мои Запросы @if ($requestCount > 0) <span class="badge text-bg-secondary">{{ $requestCount }}</span> @endif</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('profiles.show', auth()->user()->id)}}">Профиль</a></li>
+                                        @endif
                                         <li>
                                             <form action="{{ route('logout')}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item">Выход</button>
                                             </form>
-                                            {{-- <a class="dropdown-item" href="{{ route('logout') }}">Выход</a> --}}
                                         </li>
                                     </ul>
                                 </div>

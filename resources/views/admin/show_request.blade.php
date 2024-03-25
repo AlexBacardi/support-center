@@ -1,5 +1,5 @@
 @extends('layouts.admin_main')
-@section('title', 'Название заявки')
+@section('title', $request->title)
 @section('content')
     <div class="container-fluid">
         <div class="row mb-2">

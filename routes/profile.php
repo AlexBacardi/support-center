@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\UpdatePasswordController;
 use App\Http\Controllers\Main\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified'])->group(function(){
+Route::middleware(['auth', 'verified', 'isUserBan'])->group(function(){
 
     Route::prefix('profile')->controller(ProfileController::class)->group(function() {
 

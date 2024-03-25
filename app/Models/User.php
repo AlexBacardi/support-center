@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,6 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'role_id',
+        'banned_until',
     ];
 
     /**
@@ -43,6 +43,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'banned_until' => 'datetime',
     ];
 
 
@@ -64,6 +65,20 @@ class User extends Authenticatable implements MustVerifyEmail
     {
 
         return $this->HasMany(Comment::class, 'user_id', 'id');
+
+    }
+
+    public function role()
+    {
+
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+
+    }
+
+    public function isAdmin()
+    {
+
+        return $this->role_id === 1;
 
     }
 }

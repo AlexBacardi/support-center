@@ -22,19 +22,23 @@
                 <hr class="border-white">
                 <div>
                     <a href="#collapseUserMenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-center justify-content-lg-start text-white text-decoration-none collapse-link ms-lg-3">
-                        <img class="avatar avatar-32 bg-light rounded-circle text-white p-1" src="{{ asset('build/img/avatars/avatar.png') }}">
-                        <span class="d-none d-lg-inline mx-1">UserName</span><i class="fas fa-angle-down my-auto ms-2 d-none d-lg-inline"></i>
+                        <img class="avatar avatar-32 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar) ? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar) }}">
+                        <span class="d-none d-lg-inline mx-1">{{ auth()->user()->name }}</span><i class="fas fa-angle-down my-auto ms-2 d-none d-lg-inline"></i>
                     </a>
                     <ul class="collapse nav ms-lg-4" id="collapseUserMenu">
                         <li class="w-100 py-2">
-                            <a class="d-flex align-items-center justify-content-center justify-content-lg-start text-white text-decoration-none" href="#">
+                            <a class="d-flex align-items-center justify-content-center justify-content-lg-start text-white text-decoration-none" href="{{ route('admin.users.show', auth()->user()->id )}}">
                                 <i class="fa-regular fa-address-card"></i><span class="ms-2 d-none d-lg-inline">Профиль</span>
                             </a>
                         </li>
                         <li class="w-100 py-2">
-                            <a class="d-flex align-items-center justify-content-center justify-content-lg-start text-white text-decoration-none" href="#">
-                                <i class="fa-solid fa-right-from-bracket"></i><span class="ms-2 d-none d-lg-inline">Выход</span>
-                            </a>
+                            <form action="{{ route('logout')}}" method="POST" class="d-flex align-items-center justify-content-center justify-content-lg-start p-0">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-white nav-link p-0">
+                                    <i class="fa-solid fa-right-from-bracket"></i><span class="ms-2 d-none d-lg-inline">Выход</span>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +64,10 @@
                             </li>
                             <li class="w-100 py-2">
                                 <a href="{{ route('admin.requests', ['type' => 2]) }}" class="d-flex align-items-center justify-content-center justify-content-lg-start  text-white text-decoration-none">
-                                    <i class="fa-solid fa-rotate"></i><span class="ms-2 d-none d-lg-inline">Прочее</span><span class="ms-2 badge text-bg-secondary d-none d-lg-inline">4</span>
+                                    <i class="fa-solid fa-rotate"></i><span class="ms-2 d-none d-lg-inline">Прочее</span>
+                                    @if ($otherRequestCount > 0)
+                                        <span class="ms-2 badge text-bg-secondary d-none d-lg-inline">{{ $otherRequestCount }}</span>
+                                    @endif
                                 </a>
                             </li>
                             <li class="w-100 py-2">

@@ -11,6 +11,9 @@
                         @if ($message = session()->pull('status'))
                             <div class="alert alert-success mb-3 text-center">{{ $message }}</div>
                         @endif
+                        @if ($message = session()->pull('ban'))
+                            <div class="alert alert-danger mb-3 text-center">{{ $message }}</div>
+                        @endif
                         <form method="POST" novalidate action="{{ route('login') }}">
                             @csrf
 

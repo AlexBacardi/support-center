@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'name' => $date['name'],
             'email' => $date['email'],
             'password' => Hash::make($date['password']),
+            'role_id' => 2,
         ]);
 
         $user->profile()->create([

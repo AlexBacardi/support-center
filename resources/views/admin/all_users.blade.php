@@ -36,6 +36,7 @@
                                 <th scope="col">Компания</th>
                                 <th scope="col" class="w-25">Дата регистрации</th>
                                 <th scope="col">Статус</th>
+                                <th scope="col">Роль</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,9 +45,10 @@
                                     <th class="text-center" scope="row">{{ $user->id }}</th>
                                     <td><a href="{{ route('admin.users.show', $user)}}">{{ $user->name }}</a></td>
                                     <td><a href="{{ route('admin.users.show', $user)}}">{{ $user->email }}</a></td>
-                                    <td>{{ $user->profile->company_name }}</td>
+                                    <td>{{ $user->profile->company_name ?? '' }}</td>
                                     <td class="w-25">{{ $user->created_at->format('d-m-Y') }}</td>
-                                    <td class="text-danger">Активен</td>
+                                    <td class="text-{{status($user->banned_until) ? 'success' : 'danger'}}">{{status($user->banned_until) ? 'Активен' : 'Заблокирован'}}</td>
+                                    <td class="text-{{$user->role_id == 1 ? 'warning' : 'info'}}">{{ $user->role->title }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

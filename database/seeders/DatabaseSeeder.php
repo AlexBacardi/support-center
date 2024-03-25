@@ -27,6 +27,16 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        DB::table('roles')->insert([
+            [
+                'title' => 'administrator',
+            ],
+            [
+                'title' => 'user',
+            ],
+
+        ]);
+
         DB::table('priorities')->insert([
             [
                 'title' => 'Highest',
@@ -75,6 +85,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@mail.ru',
                 'password' => Hash::make(123456),
                 'email_verified_at' => now(),
+                'role_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -83,6 +94,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'mirox1999@mail.ru',
                 'password' => Hash::make(123456),
                 'email_verified_at' => now(),
+                'role_id'=> 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
