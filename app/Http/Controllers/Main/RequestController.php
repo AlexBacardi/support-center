@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Other\StoreRequest as OtherStoreRequest;
 use App\Http\Requests\Request\StoreRequest;
+use App\Http\Requests\Request\UpdateRequest;
 use App\Models\Priority;
 use App\Models\Request;
 use App\Models\Satellite;
@@ -87,9 +88,20 @@ class RequestController extends Controller
     {
         $type = $request->type ?? 1;
 
-        $requests = Request::where('type_id', $type)->latest('created_at')->get();
+        $requests = Request::where('type_id', $type)->oldest('status_id')->get();
 
         return view('admin.all_requests', compact('requests'));
+
+    }
+
+    public function update(Request $request, UpdateRequest $updateRequest)
+    {
+
+        if($this->requestServece->update($request, $updateRequest)) {
+
+            return redirect()->back()->with('status', 'Заявка отменена');
+
+        }
 
     }
 

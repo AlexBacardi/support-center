@@ -29,6 +29,8 @@ Route::middleware(['auth', 'verified', 'isUserBan'])->group(function() {
 
     Route::get('/servicedesk/{request}', [RequestController::class, 'show'])->name('servicedesk.show');
 
+    Route::post('/servicedesk/{request}', [RequestController::class, 'update'])->name('servicedesk.update');
+
     Route::post('/servicedesk/{request}/create', [CommentController::class, 'store'])->name('servicedesk.comments.store');
 
     Route::get('/other/create', [RequestController::class, 'createOtherRequest'])->name('other.create');

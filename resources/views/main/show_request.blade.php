@@ -5,6 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-11">
                 <div class="request-show">
+                    @if ($message = session()->pull('status'))
+                        <div class="alert alert-success mb-3 text-center">{{ $message }}</div>
+                    @endif
                     <div class="row align-items-center mb-3">
                         <div class="col-2 col-xl-1 text-center reqest-show-icon">
                             @if ($request->type_id == 1)
@@ -33,11 +36,11 @@
                         <div class="col-12 col-lg-8">
                             <div class="row request-show-message">
                                 <div class="col-2 col-md-1">
-                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar)? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar)}}">
+                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar) ? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar) }}">
                                 </div>
                                 <div class="col-9 px-2 ms-3 ms-md-2">
                                     <div class="form-floating">
-                                        <textarea class="form-control @error('message') is-invalid @enderror" id="floatingTextarea" form="request-form" name="message"></textarea>
+                                        <textarea class="form-control @error('message') is-invalid @enderror" id="floatingTextarea" form="request-form" name="message" @if ($request->status_id == 4 or $request->status_id == 3) disabled @endif></textarea>
                                         <label for="floatingTextarea">Прокоментировать запрос...</label>
                                         @error('message')
                                             <div class="text-danger">{{ $message }}</div>
@@ -45,22 +48,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row request-show-form">
-                                <div class="col-10 col-md-8 offset-1">
-                                    <form action="{{ route('servicedesk.comments.store', $request->id) }}" method="POST" enctype="multipart/form-data" id="request-form">
-                                        @csrf
-                                        <div class="mb-3">
-                                            <label for="formFileMultiple" class="form-label text-muted">Прикрепить файлы</label>
-                                            <input class="form-control form-control-sm" type="file" id="formFileMultiple" name="files[]" multiple>
-                                        </div>
-                                        @error('files*')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                        <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
-                                        <button type="reset" class="btn btn-primary btn-sm">Отмена</button>
-                                    </form>
+                            @if ($request->status_id == 1 or $request->status_id == 2)
+                                <div class="row request-show-form">
+                                    <div class="col-10 col-md-8 offset-1">
+                                        <form action="{{ route('servicedesk.comments.store', $request->id) }}" method="POST" enctype="multipart/form-data" id="request-form">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="formFileMultiple" class="form-label text-muted">Прикрепить файлы</label>
+                                                <input class="form-control form-control-sm" type="file" id="formFileMultiple" name="files[]" multiple>
+                                            </div>
+                                            @error('files*')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                            <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
+                                            <button type="reset" class="btn btn-primary btn-sm">Отмена</button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="row mb-2 px-3">
                                 <div class="col-12">
                                     <p class="m-0 text-muted">Активность</p>
@@ -71,16 +76,12 @@
                                 @foreach ($comments as $comment)
                                     <div class="active">
                                         <div class="request-answer">
-                                            <div class="row align-items-center mb-2">
-                                                <div class="col-2 col-md-1">
-                                                    <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null($comment->user->profile->avatar)? asset('build/img/avatars/avatar.png') : asset('storage/' . $comment->user->profile->avatar)}}">
-                                                </div>
-                                                <div class="col-9">
-                                                    <p class="m-0 fw-medium small">{{ $comment->user->profile->company_name }} <span class="small text-muted">{{ $comment->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
-                                                </div>
+                                            <div class="d-flex align-items-center my-2">
+                                                <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null($comment->user->profile->avatar) ? asset('build/img/avatars/avatar.png') : asset('storage/' . $comment->user->profile->avatar) }}">
+                                                <p class="mb-0 ms-2 fw-medium small">{{ $comment->user->profile->company_name }} <span class="small text-muted">{{ $comment->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
                                             </div>
                                             <div class="row">
-                                                <div class="col-11 offset-1">
+                                                <div class="col-10 col-md-11 offset-2 offset-md-1">
                                                     <p>
                                                         {{ $comment->message }}
                                                     </p>
@@ -117,11 +118,8 @@
                                 @endforeach
                             @endif
                             <div class="request-answer">
-                                <div class="row align-items-center mb-2">
-
-                                    <div class="col-9 offset-1">
-                                        <p class="m-0 fw-medium small">Подробности <span class="small text-muted">{{ $request->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
-                                    </div>
+                                <div class="d-flex mb-2">
+                                    <p class="mb-0 ms-4 fw-medium small">Подробности <span class="small text-muted">{{ $request->created_at->isoFormat('DD / MMM / YY   OH:mm ') }}</span></p>
                                 </div>
                                 <div class="row">
                                     <div class="col-11 offset-1 mt-2">
@@ -164,31 +162,31 @@
                         <div class="col-12 col-lg-4">
                             <div class="row request-show-action">
                                 <div class="col-12">
-                                    <span class="badge text-bg-secondary">WAITING FOR SUPPORT</span>
+                                    <span class="me-1">Статус:</span><span class="badge text-bg-secondary">{{ $request->status->title }}</span>
                                 </div>
-                                <div class="col-12">
-                                    <i class="fa-regular fa-eye"></i><a href="#">Не уведомляйте меня</a>
-                                </div>
-                                <div class="col-12">
-                                    <i class="fa-solid fa-right-to-bracket"></i><a href="#">Пожаловаться</a>
-                                </div>
-                                <div class="col-12">
-                                    <i class="fa-solid fa-right-to-bracket"></i><a href="#">Решить задачу</a>
-                                </div>
-                                <div class="col-12">
-                                    <i class="fa-solid fa-right-to-bracket"></i><a href="#">Закрыть обращение</a>
-                                </div>
+                                @if ($request->status_id == 1 or $request->status_id == 2)
+                                    <div class="col-12">
+                                        <i class="fa-regular fa-eye"></i><a href="#">Не уведомляйте меня</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <i class="fa-solid fa-right-to-bracket"></i><a href="#">Пожаловаться</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <form action="{{ route('servicedesk.update', $request->id) }}" method="POST">
+                                            @csrf
+                                            <button class="border-0 bg-transparent p-0 small link-primary"><i class="fa-solid fa-right-to-bracket"></i>Отменить</button>
+                                        </form>
+                                    </div>
+                                @endif
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="fw-medium">передано</p>
+                                    <p class="fw-medium mb-2">передано</p>
                                 </div>
                                 <div class="col-12">
-                                    <div class="row align-items-center">
-                                        <div class="col-2 p-0 text-center">
-                                            <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar)? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar)}}">
-                                        </div>
-                                        <div class="col-10 ps-3">
+                                    <div class="d-flex align-items-center">
+                                        <img class="avatar avatar-48 bg-light rounded-circle text-white p-1" src="{{ is_null(auth()->user()->profile->avatar) ? asset('build/img/avatars/avatar.png') : asset('storage/' . auth()->user()->profile->avatar) }}">
+                                        <div class="ms-2">
                                             <p class="m-0 fw-medium">{{ auth()->user()->profile->company_name }}</p>
                                             <p class="m-0"><span class="small text-muted">инициатор</span></p>
                                         </div>

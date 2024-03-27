@@ -89,4 +89,19 @@ class RequestService
         }
 
     }
+
+    public function update($ModelRequest, $request)
+    {
+
+        $data = $request->validated();
+
+        if ($request->is('servicedesk/*')) {
+
+            $data['status_id'] = 4;
+
+        }
+
+        return $ModelRequest->update($data);
+
+    }
 }

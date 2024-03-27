@@ -25,4 +25,6 @@ Route::middleware(['auth', 'admin', 'isUserBan'])->prefix('admin-panel')->group(
 
     Route::get('/requests/{request}', [RequestController::class, 'show'])->name('admin.requests.show');
 
+    Route::post('/requests/{request}', [RequestController::class, 'update'])->name('admin.requests.update');
+
 });

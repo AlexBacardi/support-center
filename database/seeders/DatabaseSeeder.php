@@ -98,6 +98,24 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'ivan',
+                'email' => 'user@mail.ru',
+                'password' => Hash::make(123456),
+                'email_verified_at' => now(),
+                'role_id'=> 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'max',
+                'email' => 'user1@mail.ru',
+                'password' => Hash::make(123456),
+                'email_verified_at' => now(),
+                'role_id'=> 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
 
         DB::table('profiles')->insert([
@@ -110,6 +128,16 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'user_id' => 2,
+            ],
+            [
+                'created_at' => now(),
+                'updated_at' => now(),
+                'user_id' => 3,
+            ],
+            [
+                'created_at' => now(),
+                'updated_at' => now(),
+                'user_id' => 4,
             ],
         ]);
     }

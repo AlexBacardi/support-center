@@ -136,12 +136,13 @@
                 </div>
                 <div class="row ps-md-3 mb-5">
                     <div class="col-7 col-md-5 col-lg-3">
-                        <form action="#" method="POST">
+                        <form action="{{ route('admin.requests.update', $request->id)}}" method="POST">
+                            @csrf
                             <label class="form-label">Действия</label>
-                            <select class="form-select mb-3" name="priority_id" aria-label="Default select example">
+                            <select class="form-select mb-3" name="status_id">
                                 <option selected disabled>Выбрать</option>
-                                <option value="">Закрыть</option>
-                                <option value="">Открыть</option>
+                                <option value="3">Закрыть</option>
+                                <option value="2">Открыть</option>
                             </select>
                             <button type="submit" class="btn btn-primary">Сохранить</button>
                         </form>
