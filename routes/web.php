@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware(['auth', 'verified', 'isUserBan'])->group(function() {
+Route::middleware(['auth', 'verified', 'isUserBan',])->group(function() {
 
     Route::get('/', function () { return view('main.index'); })->name('index');
 

@@ -16,7 +16,7 @@
                                 <i class="fa-solid fa-rotate"></i>
                             @endif
                         </div>
-                        <div class="col-10 col-md-9">
+                        <div class="col-10 col-md-9 ps-md-0">
                             <div class="row">
                                 <div class="col-12">
                                     <nav aria-label="breadcrumb">

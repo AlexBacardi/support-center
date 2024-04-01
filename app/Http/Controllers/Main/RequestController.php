@@ -73,6 +73,8 @@ class RequestController extends Controller
     public function show(Request $request, HttpRequest $httprequest)
     {
 
+        $this->authorize('view', $request);
+
         $comments = $request->comments()->latest('created_at')->get();
 
         $files = $request->files;
